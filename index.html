@@ -1,0 +1,106 @@
+<html>
+<head>
+<title>Психолог Юлия Жигулина</title>     
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="style.css">
+<?php
+     $f = '1.xml';
+   $xml = simplexml_load_file($f);    
+    $s = $xml->AsXML();
+    $xml=simplexml_load_string($s) or die("Error: Cannot create object");
+	$Notif = $xml->NotifTxt; 
+	$Noff = "xzfdf";
+?>
+</head>
+<body onload="notifyMe()">
+<script type="text/javascript">
+
+function notifyMe() {
+var Nf = '<?php echo $Notif ;?>';
+  // Давайте проверим, поддерживает ли браузер уведомления
+  if (!("Notification" in window)) {
+    alert("Ваш браузер не поддерживает HTML5 Notifications");
+  }
+  // Теперь давайте проверим есть ли у нас разрешение для отображения уведомления
+  else if (Notification.permission === "granted") {
+    // Если все в порядке, то создадим уведомление
+    var notification = new Notification('Психолог Юлия Жигулина', {
+      lang: 'ru-RU', 
+      body: Nf,
+      icon: 'icon.jpg'
+    });
+  }
+  // В противном случае, мы должны спросить у пользователя разрешение
+  else if (Notification.permission === 'default') {
+    Notification.requestPermission(function (permission) {
+
+      // Не зависимо от ответа, сохраняем его в настройках
+      if(!('permission' in Notification)) {
+        Notification.permission = permission;
+      }
+      // Если разрешение получено, то создадим уведомление
+      if (permission === "granted") {
+        var notification = new Notification('Психолог Юлия Жигулина', {
+         lang: 'ru-RU', 
+         body: Nf, 
+         icon: 'icon.jpg'
+      });
+      }
+    });
+  }
+}
+</script>
+</div>
+
+<div class="header"></div>
+<div class="nav_line"></div>
+
+<ul class="nav">
+	<li><a href="index.html">ГЛАВНАЯ</a></li>
+    <li><a href="obomne.html">ОБО МНЕ</a></li>
+    <li><a href="form.php">КОНСУЛЬТАЦИИ</a></li>
+    <li><a href="contacts.html">КОНТАКТЫ</a></li>
+</ul>
+
+<div class="cont"></div>
+
+<div class="text">
+Добро пожаловать! Меня зовут Юлия. </br></br>
+<b>Моя специализация:</b> дисгармонии в отношениях — неудовлетворенности, конфликты, невозможность завязать отношения или удержаться в них;
+долгосрочная психологическая работа по общим вопросам — улучшение качества жизни, личностное развитие, познание себя, терапия характера.
+Помогаю при острых эмоциональных состояниях различной природы.
+Опираюсь на несколько базовых направлений психотерапии — гешталь-терапия, психоаналитическая терапия и юнгианский анализ.</br></br>
+Я практикую в качестве консультирующего психолога с 2011 года. 
+Являюсь сертифицированным клиническим и юнгианским психологом, действительным членом Общероссийской профессиональной психотерапевтической лиги.
+Я провожу разовые консультации, а также работаю с темами для долгосрочной терапии. 
+Вы можете обратиться ко мне по различным вопросам — отношения, значимый выбор, трудная жизненная ситуация и многим другим. </br></br>
+Я считаю крайне важным умение человека быть в гармонии с самим собой. 
+Поскольку это надежный фундамент для того, чтобы радоваться своей жизни в полной мере и продуктивно взаимодействовать с другими людьми или миром вокруг.
+Если ваше внутреннее спокойствие нарушилось, приглашаю вас на встречу со мной. 
+Я буду помогать вам искать в себе новые ресурсы жить более счастливо.
+</div>
+
+<div class="pic"><img src="pic.jpg" width="280" height="440" alt="myphoto"></div>
+
+<div class="footer">
+<div class="footer_left">
+СВЯЗАТЬСЯ СО МНОЙ </br>
++7 903 542-91-77, с 11:00 до 21:00 </br>
+zhigulinajulia@gmail.com </br>
+Предоставляю услуги психолога в Москве: </br>
+м. Рижская, Проспект мира, дом 78
+</div>
+
+<div class="footer_right">
+<a href="https://vk.com/zhigulinajulia" target="_blank"><img src="vk-4.png" width="48" height="48" alt="VK"></a>
+<a href="https://www.instagram.com/julia_zhigulina/" target="_blank"><img src="inst-4.png" width="48" height="48" alt="Instagram"></a>
+</div>
+
+
+<!-- <div class="top">
+<a href="#top"><img src="up-4.png" width="48" 
+   height="48" alt="Наверх"></a>
+</div>
+ -->
+</body>
+</html>

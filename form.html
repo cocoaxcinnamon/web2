@@ -1,0 +1,100 @@
+<html>
+<head>
+<title>Детский психолог Юлия Жигулина</title>
+        
+       
+        
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="style_obomne.css">
+</head>
+<body>
+
+<div class="header"></div>
+<div class="nav_line"></div>
+
+<ul class="nav">
+	<li><a href="index.html">ГЛАВНАЯ</a></li>
+    <li><a href="obomne.html">ОБО МНЕ</a></li>
+    <li><a href="form.html">КОНСУЛЬТАЦИИ</a></li>
+    <li><a href="#">КОНТАКТЫ</a></li>
+</ul>
+
+
+
+<div class="cont">
+<button onclick="notifyMe()">Уведомление</button>
+<script>
+function notifyMe() {
+  // Давайте проверим, поддерживает ли браузер уведомления
+  if (!("Notification" in window)) {
+    alert("Ваш браузер не поддерживает HTML5 Notifications");
+  }
+  // Теперь давайте проверим есть ли у нас разрешение для отображения уведомления
+  else if (Notification.permission === "granted") {
+    // Если все в порядке, то создадим уведомление
+    var notification = new Notification('Уведомление HTML5', {
+      lang: 'ru-RU', 
+      body: 'Семейная психотерапия со скидкой 50%!', 
+      icon: 'http://lorempixel.com/output/sports-q-c-100-100-9.jpg'
+    });
+  }
+  // В противном случае, мы должны спросить у пользователя разрешение
+  else if (Notification.permission === 'default') {
+    Notification.requestPermission(function (permission) {
+
+      // Не зависимо от ответа, сохраняем его в настройках
+      if(!('permission' in Notification)) {
+        Notification.permission = permission;
+      }
+      // Если разрешение получено, то создадим уведомление
+      if (permission === "granted") {
+        var notification = new Notification('Уведомление HTML5', {
+         lang: 'ru-RU', 
+         body: 'Семейная психотерапия со скидкой 50%!', 
+         icon: 'http://lorempixel.com/output/sports-q-c-100-100-9.jpg'
+      });
+      }
+    });
+  }
+}
+</script>
+</div>
+
+
+<div class="pic">
+</div>
+
+
+
+<div class="text_left">
+</div>
+<div class="text_right">
+</div>
+
+
+
+
+
+
+<div class="footer">
+<div class="footer_left">
+СВЯЗАТЬСЯ СО МНОЙ </br>
++7 903 542-91-77, с 11:00 до 21:00 </br>
+MariaNifontovna@gmail.com </br>
+Предоставляю услуги психолога в Москве: </br>
+м. Рижская, Проспект мира, дом 78
+</div>
+
+<div class="footer_right">
+<a href="https://vk.com/zhigulinajulia" target="_blank"><img src="vk-4.png" width="48" height="48" alt="VK"></a>
+<a href="https://www.instagram.com/julia_zhigulina/" target="_blank"><img src="inst-4.png" width="48" height="48" alt="Instagram"></a>
+</div>
+
+
+<!-- <div class="top">
+<a href="#top"><img src="up-4.png" width="48" 
+   height="48" alt="Наверх"></a>
+</div>
+ -->
+</body>
+</html>
